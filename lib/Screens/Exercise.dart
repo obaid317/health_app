@@ -48,7 +48,7 @@ class _ExerciseState extends State<Exercise> {
                               padding: const EdgeInsets.all(11.0),
                               child: GestureDetector(
                                 onTap: (){
-                                  Navigator.push(context, MaterialPageRoute(builder: (context)=>VideoApp(titt: docu["tittle"],desc: docu['description'],reps: docu['Reps'],rests: docu['Rests'],sets: docu['Sets'],vurl: docu['videos'],)));
+                                 /// Navigator.push(context, MaterialPageRoute(builder: (context)=>VideoApp(titt: docu["tittle"],desc: docu['description'],reps: docu['Reps'],rests: docu['Rests'],sets: docu['Sets'],vurl: docu['videos'],)));
                                 },
                                 child: Container(
 
@@ -62,7 +62,7 @@ class _ExerciseState extends State<Exercise> {
                                       child: Column(
                                         children: [
                                           Center(
-                                            child: Text(docu['tittle'],style: TextStyle(
+                                            child: Text("docu['name']",style: TextStyle(
                                               fontWeight: FontWeight.bold,
                                               fontSize: 20,
                                             ),),
@@ -76,39 +76,11 @@ class _ExerciseState extends State<Exercise> {
                                                   mainAxisAlignment: MainAxisAlignment.start,
                                                   crossAxisAlignment: CrossAxisAlignment.start,
                                                   children: [
-                                                    Text("Reps",style: TextStyle(
+                                                    Text("Psychologist",style: TextStyle(
                                                       fontWeight: FontWeight.bold,
                                                       fontSize: 15,
                                                     ),),
-                                                    Text(docu['Reps'],style: TextStyle(
-                                                      fontWeight: FontWeight.bold,
-                                                      fontSize: 12,
-                                                    ),),
-                                                    Padding(
-                                                      padding: const EdgeInsets.only(top: 5),
-                                                      child: Text("Sets",style: TextStyle(
-                                                        fontWeight: FontWeight.bold,
-                                                        fontSize: 15,
-                                                      ),),
-                                                    ),
-                                                    Padding(
-                                                      padding: const EdgeInsets.only(top: 5),
-                                                      child: Text(docu['Sets'],style: TextStyle(
-                                                        fontWeight: FontWeight.bold,
-                                                        fontSize: 12,
-                                                      ),),
-                                                    ),
-                                                    Padding(
-                                                      padding: const EdgeInsets.only(top: 5),
-                                                      child: Text("Rest",style: TextStyle(
-                                                        fontWeight: FontWeight.bold,
-                                                        fontSize: 15,
-                                                      ),),
-                                                    ),
-                                                    Text(docu['Rests'],style: TextStyle(
-                                                      fontWeight: FontWeight.bold,
-                                                      fontSize: 12,
-                                                    ),),
+
                                                   ],                            ),
                                               ),
                                               Container(
@@ -116,7 +88,7 @@ class _ExerciseState extends State<Exercise> {
                                                 width: 220,
                                                 decoration: BoxDecoration(
                                                   image: DecorationImage(
-                                                    image: NetworkImage(docu['image'],),
+                                                    image: AssetImage("asset/MentalHealth.png",),
                                                     fit: BoxFit.cover,
 
                                                   ),

@@ -4,8 +4,12 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:health_app/Screens/Account.dart';
 import 'package:health_app/Screens/CalorieChart.dart';
 import 'package:health_app/Screens/Exercise.dart';
+import 'package:health_app/Screens/MwntalHistory.dart';
 import 'package:health_app/Screens/PLansCalendar.dart';
+import 'package:health_app/Screens/PsychologistPanel.dart';
 import 'package:health_app/Screens/Recommendation.dart';
+import 'package:health_app/Screens/ShowPsychologist.dart';
+import 'package:health_app/Screens/StepCounter.dart';
 import 'package:health_app/Screens/home_page.dart';
 import 'package:health_app/data/questions.dart';
 import 'package:health_app/model/category.dart';
@@ -34,16 +38,17 @@ class _PfyState extends State<Pfy> {
    icon: FontAwesomeIcons.rocket,
    description: 'Practice questions from various chapters in physics',
  );
-String bmistr="";
+String bmistr="",uid="";
  int selectedindex =0;
  LoadModel() async{
    SharedPreferences prefs = await SharedPreferences.getInstance();
  double  bmrs = await double.parse(prefs.getString("bmr"));
    double  bmis = await double.parse(prefs.getString("bmi"));
+   String uids=await prefs.getString("uid");
    setState(() {
+     uid=uids;
    bmr=bmrs;
    bmi=bmis;
-    print(bmr);
   });
 if(bmi<15){
   setState(() {
@@ -240,7 +245,7 @@ if(bmi<15){
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.symmetric(vertical:48.0),
+                            padding: const EdgeInsets.only(top:45),
                             child: ButtonTheme(
                               minWidth: MediaQuery.of(context).size.width*0.63,
                               height: 45.0,
@@ -253,10 +258,34 @@ if(bmi<15){
 
 
                                 onPressed: () async {
-Navigator.push(context, MaterialPageRoute(builder: (context)=>Calchart()));
+                                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Calchart()));
                                 },
                                 child: const Text(" "
                                     'Calorie Chart' '',
+                                  style: TextStyle(fontSize: 15, color: Colors.white),
+
+                                ),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top:10),
+                            child: ButtonTheme(
+                              minWidth: MediaQuery.of(context).size.width*0.63,
+                              height: 45.0,
+                              child: RaisedButton(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(28.0),
+
+                                ),
+                                color: Colors.black,
+
+
+                                onPressed: () async {
+                                  Navigator.push(context, MaterialPageRoute(builder: (context)=>StepCounter()));
+                                },
+                                child: const Text(" "
+                                    'Step Counter' '',
                                   style: TextStyle(fontSize: 15, color: Colors.white),
 
                                 ),
@@ -766,8 +795,8 @@ fontWeight: FontWeight.bold,
                ),
                color:  Colors.black,
 
-               onPressed: () async {
-
+               onPressed: ()    {
+Navigator.push(context, MaterialPageRoute(builder: (context)=>StressHistory()));
                },
                child: const Text(" "
                    'Mental Health History' '',
@@ -780,7 +809,7 @@ fontWeight: FontWeight.bold,
        ],
      ),
    ),
-      // CategoryPage(category: a),
+      Container(child: ShowPsychologist(),),
       Account(),
     ];
 
@@ -805,6 +834,10 @@ fontWeight: FontWeight.bold,
           BottomNavigationBarItem(
             icon: Icon(Icons.panorama_wide_angle),
             label: 'Mental',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.video_call),
+            label: 'Video Call',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),

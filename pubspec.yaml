@@ -42,6 +42,11 @@ dependencies:
   video_player: ^1.0.0
   survey_kit: ^0.0.8
   pedometer:
+  firebase_messaging:
+  syncfusion_flutter_charts:
+  permission_handler: ^3.0.0
+  agora_rtc_engine: 3.3.3
+  agora_rtm: ^0.9.11
   percent_indicator:
 dev_dependencies:
   flutter_test:

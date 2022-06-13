@@ -1,6 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:health_app/Screens/PhysicalFitness.dart';
+import 'package:health_app/Services/Sharedpref.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:survey_kit/survey_kit.dart';
 
@@ -456,8 +458,34 @@ class MyAppss extends StatefulWidget {
 }
 
 class _MyAppssState extends State<MyAppss> {
+  String uid,name;
+  @override
+  void initState() {
+    getuid(); // TODO: implement initState
+    super.initState();
+    getuid();
+  }
+
+  Future<void> getuid() async {
+
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+  String   uids  =  await prefs.getString('uid');
+  String names= await SharedPreferenceHelper().getUserEmail() as String;
+  setState(() {
+    uid=uids;
+    name=names;
+
+  });
+  }
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
+    String recommendation=" ";
+    CollectionReference ref = FirebaseFirestore.instance.collection("stress");
     return  Scaffold(
       body: Container(
         color: Colors.white,
@@ -496,7 +524,39 @@ class _MyAppssState extends State<MyAppss> {
                     value++;
                     }
                   prefs.setInt("stress", score);
-                    print("final Score is $score");  // int score = 0;
+                    int stressLevel=0;
+                    setState(() {
+                      stressLevel=score;
+                    });
+                    print("final Score is $score");
+                    if(stressLevel>=0&&stressLevel<9) {
+                      recommendation="Breathing Exercise";
+                    }
+                    if(stressLevel>8&&stressLevel<20)  {
+                      recommendation="Relaxation Techniques";
+                    }
+                    if(stressLevel>19&&stressLevel<30)  {
+                      recommendation="Mindfulness meditation";
+                    }
+                    if(stressLevel>29&&stressLevel<40)  {
+                      recommendation="Practice self-care";
+                    }
+                    if(stressLevel>39&&stressLevel<50)  {
+                      recommendation="Consider supplements";
+                    }
+                    if(stressLevel>49)  {
+                      recommendation="Psychologist Consultation";
+                    }
+                    Map<String,dynamic> addItem={
+                      "uid":uid,
+                      "stress": score,
+                      "recommendation":recommendation,
+                      "username":name,
+                      "date":DateTime.now().toString(),
+                      "datentime":DateTime.now(),
+                      // int score = 0;
+                    };
+               await     ref.add(addItem);
 
                   },
                   task: task,

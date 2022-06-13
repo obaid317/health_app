@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'PsychologistPanel.dart';
 class Account extends StatefulWidget {
   @override
   _AccountState createState() => _AccountState();
@@ -39,119 +41,131 @@ class _AccountState extends State<Account> {
 
 
     return Scaffold(
-      body: Container(
-        padding: EdgeInsets.only(left: 16,top: 25,right:16),
-        child: ListView(
+      body: SingleChildScrollView(
+        child: Column(
           children: [
-            Row(
+            Container(
+              padding: EdgeInsets.only(left: 16,top: 25,right:16),
+              child: ListView(
+                shrinkWrap: true,
+                children: [
+                  Row(
 
-              children: [
-                Text('Account Info',style: TextStyle(
-                    fontSize: 25,fontWeight: FontWeight.w500
-                ),),
-
-
-                SizedBox(width: 5,),
-
-              ],
-
-
-            ),
-            SizedBox(
-              height: 15,
-            ),
-
-            Padding(
-              padding: const EdgeInsets.only(top:28,left:8),
-              child: Container(
-                decoration: BoxDecoration(
-color: Colors.white,
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Email Address',style: TextStyle(
-                          fontSize: 12,fontWeight: FontWeight.w300
-                      ),
+                      Text('Account Info',style: TextStyle(
+                          fontSize: 25,fontWeight: FontWeight.w500
+                      ),),
 
-                      ),
-                      SizedBox(
-                        height: 8,
-                      ),
-                      Text(email,style: TextStyle(
-                        fontSize: 16,fontWeight: FontWeight.bold,
-                        color: Colors.black,
-                      ),
 
-                      ),
+                      SizedBox(width: 5,),
+
                     ],
+
+
                   ),
-                ),
+                  SizedBox(
+                    height: 15,
+                  ),
+
+                  Padding(
+                    padding: const EdgeInsets.only(top:28,left:8),
+                    child: Container(
+                      decoration: BoxDecoration(
+color: Colors.white,
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('Email Address',style: TextStyle(
+                                fontSize: 12,fontWeight: FontWeight.w300
+                            ),
+
+                            ),
+                            SizedBox(
+                              height: 8,
+                            ),
+                            Text(email,style: TextStyle(
+                              fontSize: 16,fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                            ),
+
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top:28,left:8),
+                    child: Container(
+                      decoration: BoxDecoration(
+color: Colors.white,
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('User Name',style: TextStyle(
+                                fontSize: 12,fontWeight: FontWeight.w300
+                            ),
+
+                            ),
+                            SizedBox(
+                              height: 8,
+                            ),
+                            Text(name,style: TextStyle(
+                              fontSize: 16,fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                            ),
+
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+
+                  Padding(
+                    padding: const EdgeInsets.only(top:28,left:8),
+                    child: Container(
+                      decoration: BoxDecoration(
+color: Colors.white,
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+
+
+                            SizedBox(
+                              height: 8,
+                            ),
+                            Text("Log Out",style: TextStyle(
+                              fontSize: 16,fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                            ),
+
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  )
+                ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top:28,left:8),
-              child: Container(
-                decoration: BoxDecoration(
-color: Colors.white,
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('User Name',style: TextStyle(
-                          fontSize: 12,fontWeight: FontWeight.w300
-                      ),
-
-                      ),
-                      SizedBox(
-                        height: 8,
-                      ),
-                      Text(name,style: TextStyle(
-                        fontSize: 16,fontWeight: FontWeight.bold,
-                        color: Colors.black,
-                      ),
-
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-
-            Padding(
-              padding: const EdgeInsets.only(top:28,left:8),
-              child: Container(
-                decoration: BoxDecoration(
-color: Colors.white,
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-
-
-                      SizedBox(
-                        height: 8,
-                      ),
-                      Text("Log Out",style: TextStyle(
-                        fontSize: 16,fontWeight: FontWeight.bold,
-                        color: Colors.black,
-                      ),
-
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            )
+            SizedBox(height: 500,),
+            GestureDetector(child: Text("Psychologist"),
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>PsychPanel()));
+            },),
           ],
         ),
       ),

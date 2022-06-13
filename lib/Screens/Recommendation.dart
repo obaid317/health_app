@@ -34,10 +34,10 @@ int stressLevel=0;
         child: Column(
           
                       children: [
-                        Container(height: 40,   decoration: BoxDecoration(
-                          color: Colors.black,
-                          borderRadius: BorderRadius.only(bottomRight: Radius.circular(33),bottomLeft: Radius.circular(33) ),
-                        ),),
+                        // Container(height: 40,   decoration: BoxDecoration(
+                        //   color: Colors.black,
+                        //   borderRadius: BorderRadius.only(bottomRight: Radius.circular(33),bottomLeft: Radius.circular(33) ),
+                        // ),),
                            Padding(
                              padding: const EdgeInsets.all(8.0),
                              child: CircularPercentIndicator(
@@ -91,7 +91,7 @@ int stressLevel=0;
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Center(
-                                child: Text("Normal",style: TextStyle(
+                                child: Text("Mild",style: TextStyle(
                                     fontWeight: FontWeight.bold, fontSize: 20.0,color: Colors.white
                                 ),),
                               ),
@@ -193,7 +193,7 @@ int stressLevel=0;
                                 child: Column(
                                   children: [
                                     Center(
-                                      child: Text("Activiy Title",style: TextStyle(
+                                      child: Text("Breathing Exercise",style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 20,
                                       ),),
@@ -207,12 +207,17 @@ int stressLevel=0;
                                             mainAxisAlignment: MainAxisAlignment.start,
                                             crossAxisAlignment: CrossAxisAlignment.start,
                                             children: [
-                                              Container(
-                                                width:MediaQuery.of(context).size.width*0.8,
-                                                child: Text("Push-up is an exercise done laying with face, palms and toes facing down, keeping legs and back straight, extending arms straight to push body up and back down again. Push-up is a great exercise that works the chest, shoulder and arm muscles.",style: TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 15,
-                                                ),),
+                                              Row(
+                                                children: [
+                                                  Container(
+                                                    width:MediaQuery.of(context).size.width*0.8,
+                                                    child: Text("1. Sit comfortably on the floor or in a chair.\n2. Breathe in through your nose. Fill your belly all the way up with air.\n3. When you can't breathe in any more, open your mouth as wide as you can. Breathe out with a ""HA"" sound.\n4. Repeat several times",style: TextStyle(
+                                                      fontWeight: FontWeight.bold,
+                                                      fontSize: 13,
+                                                    ),),
+                                                  ),
+
+                                                ],
                                               ),
 
 
@@ -253,7 +258,7 @@ int stressLevel=0;
                                 child: Column(
                                   children: [
                                     Center(
-                                      child: Text("Activiy Title",style: TextStyle(
+                                      child: Text("Relaxation Techniques",style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 20,
                                       ),),
@@ -263,36 +268,20 @@ int stressLevel=0;
                                       children: [
                                         Padding(
                                           padding: const EdgeInsets.all(8.0),
-                                          child: Column(
-                                            mainAxisAlignment: MainAxisAlignment.start,
-                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                            children: [
-                                              Container(
-                                                width:MediaQuery.of(context).size.width*0.8,
-                                                child: Text("Push-up is an exercise done laying with face, palms and toes facing down, keeping legs and back straight, extending arms straight to push body up and back down again. Push-up is a great exercise that works the chest, shoulder and arm muscles.",style: TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 15,
-                                                ),),
-                                              ),
-
-
-                                            ],                            ),
+                                          child: Container(
+                                            width:MediaQuery.of(context).size.width*0.8,
+                                            child: Text(" 1. Offer Namaz\n 2. Yoga\n 3. Tai Chi\n 4. Music and art therapy. \n 5. Any activity that is fun for you",style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 13,
+                                            ),),
+                                          ),
                                         ),
-                                        // Container(
-                                        //   height: 110,
-                                        //   width: 170,
-                                        //   decoration: BoxDecoration(
-                                        //     image: DecorationImage(
-                                        //       image: NetworkImage("https://firebasestorage.googleapis.com/v0/b/ubh-fitness.appspot.com/o/images%2F2022-02-28%2003%3A13%3A28.928210?alt=media&token=48c5092b-47f3-40ec-8705-a89bd256e860",),
-                                        //       fit: BoxFit.cover,
-                                        //
-                                        //     ),
-                                        //     borderRadius: BorderRadius.circular(22),
-                                        //   ),
-                                        //
-                                        // )
+
                                       ],
-                                    ),
+                                    ),       Text("Note : At least practise any relaxation technique for 20 minutes ",style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 10,
+                                    ),)
                                   ],
 
                                 ),
@@ -313,7 +302,7 @@ int stressLevel=0;
                                 child: Column(
                                   children: [
                                     Center(
-                                      child: Text("Activiy Title",style: TextStyle(
+                                      child: Text("Mindfulness meditation",style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 20,
                                       ),),
@@ -329,9 +318,9 @@ int stressLevel=0;
                                             children: [
                                               Container(
                                                 width:MediaQuery.of(context).size.width*0.8,
-                                                child: Text("Push-up is an exercise done laying with face, palms and toes facing down, keeping legs and back straight, extending arms straight to push body up and back down again. Push-up is a great exercise that works the chest, shoulder and arm muscles.",style: TextStyle(
+                                                child: Text(" 1. Sit comfortably.\n 2. Focusing on your breathing.\n 3. Bringing your mind's attention to the present moment without concerns about the past or the future.",style: TextStyle(
                                                   fontWeight: FontWeight.bold,
-                                                  fontSize: 15,
+                                                  fontSize: 13,
                                                 ),),
                                               ),
 
@@ -373,7 +362,7 @@ int stressLevel=0;
                                 child: Column(
                                   children: [
                                     Center(
-                                      child: Text("Activiy Title",style: TextStyle(
+                                      child: Text("Practice self-care",style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 20,
                                       ),),
@@ -389,9 +378,9 @@ int stressLevel=0;
                                             children: [
                                               Container(
                                                 width:MediaQuery.of(context).size.width*0.8,
-                                                child: Text("Push-up is an exercise done laying with face, palms and toes facing down, keeping legs and back straight, extending arms straight to push body up and back down again. Push-up is a great exercise that works the chest, shoulder and arm muscles.",style: TextStyle(
+                                                child: Text("Sett aside time for health care and practise any of the following exercise :  \n 1. Going for a walk outside \n 2. Taking a bath \n 3. Lighting candles \n 4. Reading a good book \n  5. Exercising  \n 6. Stretching before bed",style: TextStyle(
                                                   fontWeight: FontWeight.bold,
-                                                  fontSize: 15,
+                                                  fontSize: 13,
                                                 ),),
                                               ),
 
@@ -433,7 +422,7 @@ int stressLevel=0;
                                 child: Column(
                                   children: [
                                     Center(
-                                      child: Text("Activiy Title",style: TextStyle(
+                                      child: Text("Consider supplements",style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 20,
                                       ),),
@@ -449,15 +438,16 @@ int stressLevel=0;
                                             children: [
                                               Container(
                                                 width:MediaQuery.of(context).size.width*0.8,
-                                                child: Text("Push-up is an exercise done laying with face, palms and toes facing down, keeping legs and back straight, extending arms straight to push body up and back down again. Push-up is a great exercise that works the chest, shoulder and arm muscles.",style: TextStyle(
+                                                child: Text("Several vitamins and minerals play an important role in your body’s stress response and mood regulation. As such, a deficiency in one or more nutrients may affect your mental health and ability to cope with stress. \nConsider using supplements that contains \n 1. Magnesium \n 2. Rhodiola  \n 3. B vitamins \n 4. L-theanine \n 5. Ashwagandha",style: TextStyle(
                                                   fontWeight: FontWeight.bold,
-                                                  fontSize: 15,
+                                                  fontSize: 13,
                                                 ),),
                                               ),
-
+//
 
                                             ],                            ),
                                         ),
+
                                         // Container(
                                         //   height: 110,
                                         //   width: 170,
@@ -473,6 +463,10 @@ int stressLevel=0;
                                         // )
                                       ],
                                     ),
+                                    Text("Note : However, dietary supplements may not be appropriate or safe for everyone. Consult a healthcare professional if you’re interested in using supplements to help relieve stress.",style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 10,
+                                    ),)
                                   ],
 
                                 ),
@@ -493,7 +487,7 @@ int stressLevel=0;
                                 child: Column(
                                   children: [
                                     Center(
-                                      child: Text("Activiy Title",style: TextStyle(
+                                      child: Text("Psychologist Consultation",style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 20,
                                       ),),
@@ -509,9 +503,9 @@ int stressLevel=0;
                                             children: [
                                               Container(
                                                 width:MediaQuery.of(context).size.width*0.8,
-                                                child: Text("Push-up is an exercise done laying with face, palms and toes facing down, keeping legs and back straight, extending arms straight to push body up and back down again. Push-up is a great exercise that works the chest, shoulder and arm muscles.",style: TextStyle(
+                                                child: Text("After analyzing your stress level we have concluded that you have a severe stress level and you are in a dire need of urgent mental help. Your Information have been forwarded to our Psychologist expert and they will contact you soon through video call.",style: TextStyle(
                                                   fontWeight: FontWeight.bold,
-                                                  fontSize: 15,
+                                                  fontSize: 13,
                                                 ),),
                                               ),
 
@@ -533,6 +527,10 @@ int stressLevel=0;
                                         // )
                                       ],
                                     ),
+                                    Text("Note : Our Psychologist will likely consult you within 24 hour's preferably between 1:00 pm to 5:00pm.",style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 10,
+                                    ),)
                                   ],
 
                                 ),
