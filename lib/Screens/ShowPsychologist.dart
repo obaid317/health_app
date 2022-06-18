@@ -47,7 +47,7 @@ class _ShowPsychologistState extends State<ShowPsychologist> {
                       child:  ListView.builder(shrinkWrap: true, itemCount: snapshot.data.size , itemBuilder: (context, index) {
                         var docu = snapshot.data.docs[index].data();
                         return Padding(
-                          padding: const EdgeInsets.all(11.0),
+                          padding: const EdgeInsets.all(7.0),
                           child: GestureDetector(
                             onTap: (){
                               onJoin(
@@ -67,7 +67,7 @@ class _ShowPsychologistState extends State<ShowPsychologist> {
                                   child: Column(
                                     children: [
                                       Center(
-                                        child: Text("Mam Rabia",style: TextStyle(
+                                        child: Text("Syeda Batool Fatima",style: TextStyle(
                                           fontWeight: FontWeight.bold,
                                           fontSize: 20,
                                         ),),

@@ -52,7 +52,7 @@ String bmistr="",uid="";
   });
 if(bmi<15){
   setState(() {
-    bmistr="Severlt Under Weight";
+    bmistr="Severly Under Weight";
   });
 }
    if(bmi>15&&bmi<18.5){
@@ -320,8 +320,7 @@ if(bmi<15){
                       ),
                     ),
 
-
-                                      Container(
+                    Container(
                       child: Column(
                         children: [
                           GridView.builder( shrinkWrap: true,

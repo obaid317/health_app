@@ -42,6 +42,7 @@ dependencies:
   video_player: ^1.0.0
   survey_kit: ^0.0.8
   pedometer:
+  http:
   firebase_messaging:
   syncfusion_flutter_charts:
   permission_handler: ^3.0.0

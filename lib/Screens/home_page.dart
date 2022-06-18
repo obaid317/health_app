@@ -458,7 +458,7 @@ class MyAppss extends StatefulWidget {
 }
 
 class _MyAppssState extends State<MyAppss> {
-  String uid,name;
+  String uid,name=" ";
   @override
   void initState() {
     getuid(); // TODO: implement initState
@@ -470,10 +470,24 @@ class _MyAppssState extends State<MyAppss> {
 
     SharedPreferences prefs = await SharedPreferences.getInstance();
   String   uids  =  await prefs.getString('uid');
-  String names= await SharedPreferenceHelper().getUserEmail() as String;
+    print(uids);
+    var collection = await FirebaseFirestore.instance.collection('users').where(
+        'uid', isEqualTo: uids);
+    var querySnapshot = await collection.get();
+
+    for (var queryDocumentSnapshot in querySnapshot.docs) {
+      Map<String, dynamic> data = await queryDocumentSnapshot.data();
+      setState(() {
+        name=  data['email'];
+
+
+      });
+
+
+    }
   setState(() {
     uid=uids;
-    name=names;
+   // name=names;
 
   });
   }
