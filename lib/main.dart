@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:health_app/Screens/PhysicalFitness.dart';
-import 'package:health_app/Screens/ShowPsychologist.dart';
 import 'package:health_app/Services/AuthService.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 
@@ -21,7 +20,7 @@ Future<void> main() async {
           future: a.getCurrentUser(),
             builder:(context, AsyncSnapshot<dynamic> snapshot){
             if(snapshot.hasData){
-              return ShowPsychologist();
+              return Pfy();
             }
             else{
               return SplashScreen();
@@ -40,7 +39,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Timer(Duration(seconds: 4), () => Navigator.push(context, MaterialPageRoute(builder: (context)=>ShowPsychologist())));
+    Timer(Duration(seconds: 4), () => Navigator.push(context, MaterialPageRoute(builder: (context)=>Wellcome())));
 
   }
   @override
