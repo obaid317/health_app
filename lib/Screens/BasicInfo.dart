@@ -18,12 +18,8 @@ class _GatherInfoState extends State<GatherInfo> {
     initiallize();
   }
   initiallize() async{
-   SharedPreferences a =await SharedPreferences.getInstance();
-    String uids= await a.get("uid");
-  setState(() {
-    uid=uids;
-  });
- }
+    uid= await SharedPreferenceHelper().getUserId();
+  }
   final _formKey = GlobalKey<FormState>();
   String age="",height, weight;
  double bmi;
@@ -313,20 +309,19 @@ body: SingleChildScrollView(
   
             }
                                           if(male){
-
+                                             additems ={
+                                              'uid':uid,'age':age,"height":height,"weight":weight,'actlevel':_selectedLocation,'gender':'male'
+                                              ///'username': username,'email': email, 'uid': uid,
+                                            };
                                            bmr=(13.397*double.parse(weight) + 4.799*double.parse(height) -(5.677*double.parse(age)) + 88.362) ;
                                                bmi =double.parse(weight)/((0.01*double.parse(height))*(0.01*double.parse(height)));
-                                           additems ={
-                                             'uid':uid,'age':age,"height":height,"weight":weight,'actlevel':_selectedLocation,'gender':'male','bmr':bmr,"bmi":bmi,
-                                             ///'username': username,'email': email, 'uid': uid,
-                                           };
                                              print("bmi is   "+bmi.toString());
                                           }else{
                                             bmr=(9.247*double.parse(weight) + 3.098*double.parse(height) -( 4.330*double.parse(age)) + 447.593) ;
                                              bmi =double.parse(weight)/((0.01*double.parse(height))*(0.01*double.parse(height)));
                                             print("bmi is   "+bmi.toString());
                                             additems ={
-                                              'uid':uid,'age':age,"height":height,"weight":weight,'actlevel':_selectedLocation,'gender':'female','bmr':bmr.toString(),"bmi":bmi.toString(),
+                                              'uid':uid,'age':age,"height":height,"weight":weight,'actlevel':_selectedLocation,'gender':'female','bmr':bmr,"bmi":bmi,
                                               ///'username': username,'email': email, 'uid': uid,
                                             };
                                           }

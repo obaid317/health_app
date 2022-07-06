@@ -21,7 +21,7 @@ class AuthService {
         .map(_userFromFirebaseUser);
   }
   displayerror(){
-    return error;
+    return error.replaceRange(error.indexOf("["), error.indexOf(" "), "");
   }
 
   String showemail(){
@@ -54,26 +54,11 @@ class AuthService {
     try{
       UserCredential result = await _auth.signInWithEmailAndPassword(email: email, password: password);
       SharedPreferences prefs = await SharedPreferences.getInstance();
-      String uid=await _auth.currentUser.uid;
-      prefs.setString("uid", uid);
-     // double bmr=1798;
-      var collection = await FirebaseFirestore.instance.collection('usersdata').where(
-          'uid', isEqualTo: uid);
-      var querySnapshot = await collection.get();
-print("hjlkhkh");
-      for (var queryDocumentSnapshot in querySnapshot.docs) {
-        Map<String, dynamic> data = await queryDocumentSnapshot.data();
-        print("hjlkhkh");
-        String a=data['bmr'].toString();
-        String b= data['bmi'].toString();
-        await    prefs.setString('uid', uid);
-        await prefs.setString('weight', data['weight']);
-        await prefs.setString('bmr',a );
-        await prefs.setString('bmi',b);
-
-      }
-    //  SharedPreferences pre = await SharedPreferences.getInstance() ;
-     // prefs.setString("bmr", bmr.toString());
+      String uid=_auth.currentUser.uid;
+      SharedPreferenceHelper().saveUserId(uid);
+      double bmr=1798;
+      SharedPreferences pre = await SharedPreferences.getInstance() ;
+      pre.setString("bmr", bmr.toString());
       User user= result.user;
       return _userFromFirebaseUser(user);
     }catch (e){

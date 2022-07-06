@@ -6,7 +6,6 @@ import 'package:health_app/Screens/CalorieChart.dart';
 import 'package:health_app/Screens/Exercise.dart';
 import 'package:health_app/Screens/MwntalHistory.dart';
 import 'package:health_app/Screens/PLansCalendar.dart';
-import 'package:health_app/Screens/PsychologistPanel.dart';
 import 'package:health_app/Screens/Recommendation.dart';
 import 'package:health_app/Screens/ShowPsychologist.dart';
 import 'package:health_app/Screens/StepCounter.dart';
@@ -52,7 +51,7 @@ String bmistr="",uid="";
   });
 if(bmi<15){
   setState(() {
-    bmistr="Severly Under Weight";
+    bmistr="Severlt Under Weight";
   });
 }
    if(bmi>15&&bmi<18.5){
@@ -320,7 +319,8 @@ if(bmi<15){
                       ),
                     ),
 
-                    Container(
+
+                                      Container(
                       child: Column(
                         children: [
                           GridView.builder( shrinkWrap: true,
@@ -328,7 +328,7 @@ if(bmi<15){
                             itemCount: 4,
                             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: 2,
-                              childAspectRatio: 0.8,
+                              childAspectRatio: 0.7,
                             ),
                             itemBuilder: (context,int index){
                               if(index==0) {
@@ -337,7 +337,7 @@ if(bmi<15){
                                     Navigator.push(context, MaterialPageRoute(builder: (context)=>PlanCal(plan: 'begin plan',)));
                                   },
                                   child: Container(
-                                    height: 200,
+                                    height: 270,
                                     margin: EdgeInsets.all(10.0),
                                     decoration: BoxDecoration(
                                       color: Colors.black,
@@ -348,7 +348,7 @@ if(bmi<15){
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
                                         Container(
-                                          height: 180,
+                                          height: 235,
                                           alignment: Alignment.topRight,
                                           width: double.infinity,
                                           decoration: BoxDecoration(
@@ -429,7 +429,7 @@ if(bmi<15){
                                     Navigator.push(context, MaterialPageRoute(builder: (context)=>PlanCal(plan: 'bulk plan')));
                                   },
                                   child: Container(
-                                    height: 200,
+                                    height: 270,
                                     margin: EdgeInsets.all(10.0),
                                     decoration: BoxDecoration(
                                       color: Colors.black,
@@ -440,7 +440,7 @@ if(bmi<15){
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
                                         Container(
-                                          height: 180,
+                                          height: 235,
                                           alignment: Alignment.topRight,
                                           width: double.infinity,
                                           decoration: BoxDecoration(
@@ -521,7 +521,7 @@ if(bmi<15){
                                     Navigator.push(context, MaterialPageRoute(builder: (context)=>PlanCal(plan: 'Cardio plan')));
                                   },
                                   child: Container(
-                                    height: 200,
+                                    height: 270,
                                     margin: EdgeInsets.all(10.0),
                                     decoration: BoxDecoration(
                                       color: Colors.black,
@@ -532,7 +532,7 @@ if(bmi<15){
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
                                         Container(
-                                          height: 180,
+                                          height: 235,
                                           alignment: Alignment.topRight,
                                           width: double.infinity,
                                           decoration: BoxDecoration(
@@ -613,7 +613,7 @@ if(bmi<15){
                                   Navigator.push(context, MaterialPageRoute(builder: (context)=>PlanCal(plan: 'Shred plan')));
                                 },
                                 child: Container(
-                                  height: 200,
+                                  height: 270,
                                   margin: EdgeInsets.all(10.0),
                                   decoration: BoxDecoration(
                                     color: Colors.black,
@@ -624,7 +624,7 @@ if(bmi<15){
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
                                       Container(
-                                        height: 180,
+                                        height: 235,
                                         alignment: Alignment.topRight,
                                         width: double.infinity,
                                         decoration: BoxDecoration(
@@ -715,100 +715,100 @@ if(bmi<15){
           ),
         ),
       ),
-//    Container(
-//      child: Column(
-//        children: [
-//
-//          Row(
-//            mainAxisAlignment: MainAxisAlignment.center,
-//            children: [
-//              Image(image: AssetImage("asset/MentalHealth.png"),height: 300,),
-//            ],
-//          ),
-//          Text("Mental Health Module",style: TextStyle(
-//            fontSize: 21,
-// fontWeight: FontWeight.bold,
-//          ),),
-//          SizedBox(height: MediaQuery.of(context).size.height*0.1,),
-//          recomendation?Padding(
-//            padding:   EdgeInsets.fromLTRB(0, 10, 0, 10),
-//            child: ButtonTheme(
-//              minWidth: MediaQuery.of(context).size.width*0.63,
-//              height: 45.0,
-//              child: RaisedButton(
-//                shape: RoundedRectangleBorder(
-//                  borderRadius: BorderRadius.circular(28.0),
-//
-//                ),
-//                color:  Colors.black,
-//
-//                onPressed: () async {
-//                  setState(() {
-//                    recomendation=true;
-//                  });
-//                Navigator.push(context, MaterialPageRoute(builder: (context)=>Recommendations()));
-//                },
-//                child: const Text(" "
-//                    'Mental Health Recommendation' '',
-//                  style: TextStyle(fontSize: 15, color: Colors.white),
-//
-//                ),
-//              ),
-//            ),
-//          ):
-//          Padding(
-//            padding:   EdgeInsets.fromLTRB(0, 10, 0, 10),
-//            child: ButtonTheme(
-//              minWidth: MediaQuery.of(context).size.width*0.63,
-//              height: 45.0,
-//              child: RaisedButton(
-//                shape: RoundedRectangleBorder(
-//                  borderRadius: BorderRadius.circular(28.0),
-//
-//                ),
-//                color:  Colors.black,
-//
-//                onPressed: () async {
-//                  setState(() {
-//                    recomendation=true;
-//                  });
-//                  Navigator.push(context, MaterialPageRoute(builder: (context)=>MyAppss()));
-//                },
-//                child: const Text(" "
-//                    'Mental Health Survey' '',
-//                  style: TextStyle(fontSize: 15, color: Colors.white),
-//
-//                ),
-//              ),
-//            ),
-//          ),
-//          Padding(
-//            padding:   EdgeInsets.fromLTRB(0, 10, 0, 10),
-//            child: ButtonTheme(
-//              minWidth: MediaQuery.of(context).size.width*0.63,
-//              height: 45.0,
-//              child: RaisedButton(
-//                shape: RoundedRectangleBorder(
-//                  borderRadius: BorderRadius.circular(28.0),
-//
-//                ),
-//                color:  Colors.black,
-//
-//                onPressed: ()    {
-// Navigator.push(context, MaterialPageRoute(builder: (context)=>StressHistory()));
-//                },
-//                child: const Text(" "
-//                    'Mental Health History' '',
-//                  style: TextStyle(fontSize: 15, color: Colors.white),
-//
-//                ),
-//              ),
-//            ),
-//          ),
-//        ],
-//      ),
-//    ),
-//       Container(child: ShowPsychologist(),),
+   Container(
+     child: Column(
+       children: [
+
+         Row(
+           mainAxisAlignment: MainAxisAlignment.center,
+           children: [
+             Image(image: AssetImage("asset/MentalHealth.png"),height: 300,),
+           ],
+         ),
+         Text("Mental Health Module",style: TextStyle(
+           fontSize: 21,
+fontWeight: FontWeight.bold,
+         ),),
+         SizedBox(height: MediaQuery.of(context).size.height*0.1,),
+         recomendation?Padding(
+           padding:   EdgeInsets.fromLTRB(0, 10, 0, 10),
+           child: ButtonTheme(
+             minWidth: MediaQuery.of(context).size.width*0.63,
+             height: 45.0,
+             child: RaisedButton(
+               shape: RoundedRectangleBorder(
+                 borderRadius: BorderRadius.circular(28.0),
+
+               ),
+               color:  Colors.black,
+
+               onPressed: () async {
+                 setState(() {
+                   recomendation=true;
+                 });
+               Navigator.push(context, MaterialPageRoute(builder: (context)=>Recommendations()));
+               },
+               child: const Text(" "
+                   'Mental Health Recommendation' '',
+                 style: TextStyle(fontSize: 15, color: Colors.white),
+
+               ),
+             ),
+           ),
+         ):
+         Padding(
+           padding:   EdgeInsets.fromLTRB(0, 10, 0, 10),
+           child: ButtonTheme(
+             minWidth: MediaQuery.of(context).size.width*0.63,
+             height: 45.0,
+             child: RaisedButton(
+               shape: RoundedRectangleBorder(
+                 borderRadius: BorderRadius.circular(28.0),
+
+               ),
+               color:  Colors.black,
+
+               onPressed: () async {
+                 setState(() {
+                   recomendation=true;
+                 });
+                 Navigator.push(context, MaterialPageRoute(builder: (context)=>MyAppss()));
+               },
+               child: const Text(" "
+                   'Mental Health Survey' '',
+                 style: TextStyle(fontSize: 15, color: Colors.white),
+
+               ),
+             ),
+           ),
+         ),
+         Padding(
+           padding:   EdgeInsets.fromLTRB(0, 10, 0, 10),
+           child: ButtonTheme(
+             minWidth: MediaQuery.of(context).size.width*0.63,
+             height: 45.0,
+             child: RaisedButton(
+               shape: RoundedRectangleBorder(
+                 borderRadius: BorderRadius.circular(28.0),
+
+               ),
+               color:  Colors.black,
+
+               onPressed: ()    {
+Navigator.push(context, MaterialPageRoute(builder: (context)=>StressHistory()));
+               },
+               child: const Text(" "
+                   'Mental Health History' '',
+                 style: TextStyle(fontSize: 15, color: Colors.white),
+
+               ),
+             ),
+           ),
+         ),
+       ],
+     ),
+   ),
+      Container(child: ShowPsychologist(),),
       Account(),
     ];
 
@@ -830,7 +830,14 @@ if(bmi<15){
               label: 'Physical'
           ),
 
-
+          BottomNavigationBarItem(
+            icon: Icon(Icons.panorama_wide_angle),
+            label: 'Mental',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.video_call),
+            label: 'Video Call',
+          ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
             label: 'Account',

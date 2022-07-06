@@ -32,113 +32,111 @@ class _ShowPsychologistState extends State<ShowPsychologist> {
   Widget build(BuildContext context) {
 
     Query reference=FirebaseFirestore.instance.collection("online").where("uid",isEqualTo: uid);
-    return Scaffold(
-      body: Container(
-        child: Column(
-          children: [
-            StreamBuilder<QuerySnapshot>(
+    return Container(
+      child: Column(
+        children: [
+          StreamBuilder<QuerySnapshot>(
 
 
-                stream: reference.snapshots(),
-                builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot){
-                  if(snapshot.hasData) {
-                    print("sdvihldshldskl");
-                    return
-                      Container(
-                        child:  ListView.builder(shrinkWrap: true, itemCount: snapshot.data.size , itemBuilder: (context, index) {
-                          var docu = snapshot.data.docs[index].data();
-                          return Padding(
-                            padding: const EdgeInsets.all(7.0),
-                            child: GestureDetector(
-                              onTap: (){
-                                onJoin(
-                                  isBroadcaster: true,
-                                  channelname: docu['channel'],
-                                );
-                               },
-                              child: Container(
+              stream: reference.snapshots(),
+              builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot){
+                if(snapshot.hasData) {
+                  print("sdvihldshldskl");
+                  return
+                    Container(
+                      child:  ListView.builder(shrinkWrap: true, itemCount: snapshot.data.size , itemBuilder: (context, index) {
+                        var docu = snapshot.data.docs[index].data();
+                        return Padding(
+                          padding: const EdgeInsets.all(11.0),
+                          child: GestureDetector(
+                            onTap: (){
+                              onJoin(
+                                isBroadcaster: true,
+                                channelname: docu['channel'],
+                              );
+                             },
+                            child: Container(
 
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(12),
-                                    color: Colors.white,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(12),
+                                  color: Colors.white,
+
+                                ),
+                                child:Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Column(
+                                    children: [
+                                      Center(
+                                        child: Text("Mam Rabia",style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 20,
+                                        ),),
+                                      ),
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Padding(
+                                            padding: const EdgeInsets.all(8.0),
+                                            child: Column(
+                                              mainAxisAlignment: MainAxisAlignment.start,
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              children: [
+                                                Text("Psychologist",style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 15,
+                                                ),),
+                                                SizedBox(height: 20,),
+                                                Row(
+                                                  children: [
+                                                    Icon(Icons.circle,color: Colors.green,size: 10,),
+                                                    SizedBox(width: 10,),
+                                                    Text("Online",style: TextStyle(
+                                                      fontWeight: FontWeight.bold,
+                                                      fontSize: 10,
+                                                    ),),
+                                                  ],
+                                                ),
+                                              ],                            ),
+                                          ),
+                                          Container(
+                                            height: 110,
+                                            width: 220,
+                                            decoration: BoxDecoration(
+                                              image: DecorationImage(
+                                                image: AssetImage("asset/MentalHealth.png",),
+                                                fit: BoxFit.fitHeight,
+
+                                              ),
+                                              borderRadius: BorderRadius.circular(22),
+                                            ),
+
+                                          )
+                                        ],
+                                      ),
+                                    ],
 
                                   ),
-                                  child:Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Column(
-                                      children: [
-                                        Center(
-                                          child: Text("Syeda Batool Fatima",style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 20,
-                                          ),),
-                                        ),
-                                        Row(
-                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Padding(
-                                              padding: const EdgeInsets.all(8.0),
-                                              child: Column(
-                                                mainAxisAlignment: MainAxisAlignment.start,
-                                                crossAxisAlignment: CrossAxisAlignment.start,
-                                                children: [
-                                                  Text("Psychologist",style: TextStyle(
-                                                    fontWeight: FontWeight.bold,
-                                                    fontSize: 15,
-                                                  ),),
-                                                  SizedBox(height: 20,),
-                                                  Row(
-                                                    children: [
-                                                      Icon(Icons.circle,color: Colors.green,size: 10,),
-                                                      SizedBox(width: 10,),
-                                                      Text("Online",style: TextStyle(
-                                                        fontWeight: FontWeight.bold,
-                                                        fontSize: 10,
-                                                      ),),
-                                                    ],
-                                                  ),
-                                                ],                            ),
-                                            ),
-                                            Container(
-                                              height: 110,
-                                              width: 220,
-                                              decoration: BoxDecoration(
-                                                image: DecorationImage(
-                                                  image: AssetImage("asset/MentalHealth.png",),
-                                                  fit: BoxFit.fitHeight,
-
-                                                ),
-                                                borderRadius: BorderRadius.circular(22),
-                                              ),
-
-                                            )
-                                          ],
-                                        ),
-                                      ],
-
-                                    ),
-                                  )
-                              ),
+                                )
                             ),
-                          );
-                        },
-                        ),
-                      );
+                          ),
+                        );
+                      },
+                      ),
+                    );
 
 
 
-                  }
+                }
 
-                  else{
-                    return Loading();
-                  }
+                else{
+                  return Loading();
+                }
 
-                }),
-          ],
-        ),
-
-
+              }),
+        ],
       ),
+
+
     );
   }
   Future<void> onJoin({bool isBroadcaster,String channelname}) async {
