@@ -80,7 +80,7 @@ class _WellcomeState extends State<Wellcome> {
 
                         onPressed: () async {
 
-                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>SignUp()
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUp()
                     ));
                         },
                         child: const Text(" "
@@ -105,7 +105,7 @@ class _WellcomeState extends State<Wellcome> {
 
                         onPressed: () async {
 
-                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Signin()
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Signin()
                           ));
                         },
                         child: const Text(" "
